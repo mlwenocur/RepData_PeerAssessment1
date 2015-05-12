@@ -26,7 +26,7 @@ require(lattice, quietly = TRUE)
 require(ggplot2, quietly = TRUE)
 ```
 
-*Time stamp: Tue May 12 3:55:14 PM 2015.*
+*Time stamp: Tue May 12 4:30:39 PM 2015.*
 
 ###Reproducible Data Project One
 
@@ -71,7 +71,7 @@ summary(daySummaries$dailySteps, na.rm = TRUE)
 
 ####Analysis of Time Dependent Average Daily Activity 
 
-We see from the graph below that actvity peaks around 8:30 to 9:00 AM then sharply drops. Activity picks up again around noon and remains low until late afternoon around 4:30 PM. From that point activity is generally higher until about 7:30 to 8:00 PM.
+We see from the graph below that activity peaks around 8:30 to 9:00 AM then sharply drops. Activity picks up again around noon and remains low until late afternoon around 4:30 PM. From that point activity is generally higher until about 7:30 to 8:00 PM.
 
 ```r
 dataByInterval <-group_by(actData, interval)
@@ -139,7 +139,7 @@ dataByDay1 <- group_by(massagedAct, date)
 daySummaries1 <- summarize(dataByDay1, dailyNa =sum(is.na(steps)), 
                           dailySteps =sum(steps))
 ```
-By visual inspection we see that filling in the missing values has had a minor influence on the histogram of daily total activity and less than 1% change in the mean and median statistics.
+By visual inspection we see that filling in the missing values has had a minor influence on the histogram of daily total activity. The mean, median, first quartile and third quartile statistics respectively changed 0.97, 2.42,  0.47, -3.61 percent.
 
 ```r
 histogram(daySummaries1$dailySteps, na.rm = FALSE, xlab = "Daily Steps")
